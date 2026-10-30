@@ -1,0 +1,38 @@
+﻿<Window x:Class="напоминалкаа.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:напоминалкаа"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock Text="Напоминалка" Margin="10" FontSize="40" Foreground="Gray"/>
+        <DataGrid x:Name="RemindersGrid" 
+          Grid.Row="1"
+          Height="150"
+          AutoGenerateColumns="False" 
+          IsReadOnly="False"
+          Margin="0,10,0,10"
+          AlternatingRowBackground="#E3F2FD"
+          HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Часы" Binding="{Binding Hour}" Width="70"/>
+                <DataGridTextColumn Header="Минуты" Binding="{Binding Minute}" Width="70"/>
+                <DataGridTextColumn Header="Текст" Binding="{Binding Text}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Показано" Binding="{Binding IsShown}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="txtHour" Width="50" Margin="10"/>
+            <TextBox x:Name="txtMinute" Width="50" Margin="10"/>
+            <TextBox x:Name="txtText" Width="50" Margin="10"/>
+            <Button Content="Добавить" Width="150" Margin="10" Background="LightGreen" Click="AddClick"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Открыть" Width="150" Margin="10" Background="LightBlue" Click="OpenClick"/>
+            <Button Content="Сохранить" Width="150" Margin="10" Background="Blue" Click="SaveClick"/>
+            <Button Content="Удалить" Width="150" Margin="10" Background="Red" Click="DeleteClick"/>
+        </StackPanel>
+   </StackPanel>
+</Window>
